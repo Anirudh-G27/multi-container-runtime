@@ -117,22 +117,40 @@ Log Reader Thread --> [  BUFFER  ] --> Logging Thread --> logs/alpha.log
 
 ## Build and Run Commands
 
-### Step 1: Build the project
+### Step 1: Clone and Prepare the Environment
+Open your terminal and run the following commands to get your code and the necessary system tools:
 ```bash
-cd ~/projects/MultiContainer-OS-Runtime/boilerplate
+# Clone your specific repository
+git clone https://github.com/Anirudh-G27/multi-container-runtime.git
+cd multi-container-runtime/boilerplate
+
+# Install essential build tools and kernel headers
+sudo apt update
+sudo apt install -y build-essential linux-headers-$(uname -r)
+```
+
+```bash
+# Compile the user-space engine, the kernel module, and the test workloads:
 make clean && make
 ```
 This compiles everything — the engine, kernel module, and test workloads.
 
 ### Step 2: Setup the container filesystem (only once)
 ```bash
-mkdir -p rootfs-base
-wget https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.3-x86_64.tar.gz
-tar -xzf alpine-minirootfs-3.20.3-x86_64.tar.gz -C rootfs-base
-cp -a rootfs-base rootfs-alpha
-cp -a rootfs-base rootfs-beta
-cp cpu_hog memory_hog io_pulse rootfs-alpha/
-cp cpu_hog memory_hog io_pulse rootfs-beta/
+# Go to the project root directory
+cd ..
+
+# Create the base Alpine Linux filesystem
+mkdir rootfs-base
+wget https://dl-cdn.alpinelinux.org/alpine/v3.20/releases/x86_64/alpine-minirootfs-3.20.3-x86_64.tar.gz 
+tar -xzf alpine-minirootfs-3.20.3-x86_64.tar.gz -C rootfs-base 
+
+# Create a writable copy for your demo container
+cp -a ./rootfs-base ./rootfs-alpha 
+
+# Copy the test binaries into the container's filesystem
+cp boilerplate/cpu_hog rootfs-alpha/ 
+cp boilerplate/memory_hog rootfs-alpha/
 ```
 This downloads a small Alpine Linux filesystem that our containers will use as their "room".
 
