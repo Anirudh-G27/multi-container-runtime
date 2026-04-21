@@ -19,7 +19,7 @@ Our project has **two parts**:
 
 ---
 
-## What is a Container? (Simple Explanation)
+## What is a Container? 
 
 Imagine you have one house (your Linux system). Inside that house, you create **separate rooms**. Each room thinks it is its own house — it has its own front door, its own address, its own stuff. But all rooms share the same foundation (the Linux kernel).
 
