@@ -172,6 +172,11 @@ You will see: `Supervisor started. base-rootfs=./rootfs-base socket=/tmp/mini_ru
 
 ### Step 5: Use the CLI — Terminal 2
 
+```bash
+# In Terminal 2, you need to navigate to the correct folder before running the command:
+cd ~/multi-container-runtime/boilerplate
+```
+
 **Start a CPU-heavy container:**
 ```bash
 sudo ./engine start alpha ./rootfs-alpha "/cpu_hog 30"
