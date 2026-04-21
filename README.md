@@ -2,10 +2,8 @@
 
 **Course:** Operating Systems (UE24CS242B)
 **Team:**
-| Name | SRN |
-|------|-----|
-| GIRISH G N | PES1UG24CS571 |
-| ASHITH RAO K | PES1UG24CS559 |
+* Anirudh G Achar - PES1UG24AM342
+* Vikas Gowda L - PES1UG24AM329
 
 ---
 
@@ -284,7 +282,3 @@ This confirms everything shut down cleanly with no memory leaks.
 | `monitor.c` — module exit cleanup | Memory free | Frees all kernel memory on unload |
 
 ---
-
-## GitHub Repository
-
-https://github.com/GIRISH-G-N/MultiContainer-OS-Runtime
