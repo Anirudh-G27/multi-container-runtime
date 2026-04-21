@@ -156,6 +156,7 @@ This downloads a small Alpine Linux filesystem that our containers will use as t
 
 ### Step 3: Load the kernel module
 ```bash
+cd boilerplate
 sudo insmod monitor.ko
 sudo dmesg | tail -5
 ```
