@@ -177,17 +177,20 @@ You will see: `Supervisor started. base-rootfs=./rootfs-base socket=/tmp/mini_ru
 cd ~/multi-container-runtime/boilerplate
 ```
 
-**Start a CPU-heavy container:**
-```bash
-sudo ./engine start alpha ./rootfs-alpha "/cpu_hog 30"
-```
-This creates an isolated container that burns CPU for 30 seconds.
+Demo A: Standard Run:
 
-**Start an I/O-heavy container:**
+Runs a CPU-intensive task for 10 seconds.
+
 ```bash
-sudo ./engine start beta ./rootfs-beta "/io_pulse 20"
+sudo ./engine run alpha ../rootfs-alpha /cpu_hog
 ```
-This creates a container that writes data to disk repeatedly.
+
+Demo B: The Memory Limit Test (Most Important)
+This demonstrates the kernel module killing a process that exceeds its 30MiB hard limit.
+
+```bash
+sudo ./engine run mem ../rootfs-alpha /memory_hog --soft-mib 10 --hard-mib 30
+```
 
 **See all running containers:**
 ```bash
